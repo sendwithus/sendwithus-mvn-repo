@@ -6,14 +6,14 @@ Update instructions:
 
 1. Clone sendwithus/sendwithus-mvn-repo and sendwithus/sendwithus_java to your local machine.
 2. Make your changes in the sendwithus_java repo, and merge into master.
-3. Increment the version numbers in README.md as well as *both* `pom.xml` files (http://semver.org/).
-4. Build the project and update your local copy of sendwithus-mvn-repo.  From the root of your sendwithus_java project, run:
+    - Increment the version numbers in `README.md`, `SendWithUs.java`, and *both* `pom.xml` files (http://semver.org/).
+3. Build the project and update your local copy of sendwithus-mvn-repo.  From the root of your sendwithus_java project, run:
 
     `mvn -DaltDeploymentRepository=snapshot-repo::default::file:FIXME/PATH/TO/sendwithus-mvn-repo/releases clean deploy`
     
     Be sure to update the `file:FIXME/PATH/TO/sendwithus-mvn...` part of the command!
 
-5. Push all of the changes in the sendwithus-mvn-repo project to github.
+4. Push all of the changes in the sendwithus-mvn-repo project to github.
 
 
 Notes:
