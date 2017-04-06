@@ -15,6 +15,26 @@ Update instructions:
 
 4. Push all of the changes in the sendwithus-mvn-repo project to github.
 
+Update with Docker
+------------------
+
+If you want to avoid installing all of the Java requirements on your own local machine, perform the steps above within a docker image.
+
+```
+docker run -it --rm --name swu-java-maven -v "$PWD":/usr/src/mymaven -v
+**PATH to maven repo source**:/usr/src/mvn-repo -w /usr/src/mymaven
+maven:3.2-jdk-7 mvn
+-DaltDeploymentRepository=snapshot-repo::default::file:/usr/src/mvn-repo/releases
+clean deploy
+```
+
+Description:
+- Run that command from within the `sendwithus_java` directory.
+- Important: change the `**PATH to maven repo source**` to the absolute path to the maven directory.
+- The first `-v` mounts the local (sendwithus_java) directory to the working directory ('-w') within the docker image.
+- The second `-v` mounts the maven repo directory into the docker image also.
+- The last part of the command runs maven and sets the output directory to the mounted maven dir where the package is generated.
+
 
 Notes:
 --------------------
